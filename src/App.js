@@ -25,7 +25,7 @@ const App = () => {
     const searchMovies = async (title) => {
         const response = await fetch(`${API_URL}&s=${title}`);
         const data = await response.json();
-
+        console.log(data)
         setMovies(data.Search);
     };
 
@@ -39,6 +39,13 @@ const App = () => {
                 <input
                     value={searchTerm}
                     onChange={(e) => setSearchTerm(e.target.value)}
+                    onKeyDown={(e) => {
+                        if (e.keyCode === 13) {
+                          // Enter key
+                          e.preventDefault();
+                          searchMovies(searchTerm);
+                        }
+                      }}
                     placeholder="Search for movies"
                 />
                 <img

@@ -8,7 +8,7 @@ const MovieCard = ({ movie: { imdbID, Year, Poster, Title, Type } }) => {
       </div>
 
       <div>
-        <img src={Poster !== "N/A" ? Poster : "https://via.placeholder.com/400"} alt={Title} />
+        <img style={{objectFit:'cover'}} src={Poster !== "N/A" ? Poster : "https://via.placeholder.com/400"} alt={Title} />
       </div>
 
       <div>
